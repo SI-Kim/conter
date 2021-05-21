@@ -8,7 +8,7 @@ function TodosContainer() {
   const dispatch = useDispatch();
 
   const onCreate = (text) => dispatch(addTodo(text));
-  const onToggle = useCallback((id) => dispatch(toggleTodo(id), [dispatch]));
+  const onToggle = useCallback((id) => dispatch(toggleTodo(id)), [dispatch]);
   return <Todos todos={todos} onCreate={onCreate} onToggle={onToggle} />;
 }
 
