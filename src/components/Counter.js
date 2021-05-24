@@ -42,7 +42,7 @@ function Counter({ number, diff, onIncrease, onDecrease, onSetDiff }) {
 const useStyles = makeStyles((theme) => ({
   numberPaper: {
     width: "50%",
-    height: "80%",
+    height: "20vh",
     margin: "0 auto",
     minHeight: "80px",
     marginTop: "20px",
