@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
-import { Paper, Grid } from "@material-ui/core";
+import { Paper, Grid, Input } from "@material-ui/core";
 
 function Counter({ number, diff, onIncrease, onDecrease, onSetDiff }) {
   const onChange = (event) => {
@@ -16,24 +16,25 @@ function Counter({ number, diff, onIncrease, onDecrease, onSetDiff }) {
           <h1 className={classes.numberH1}>{number}</h1>
         </Grid>
       </Paper>
-      <Grid>
-        <span>
-          <input
+      <Grid container>
+        <Grid item xs={6} sm={6}>
+          <Input
             className={classes.diffInput}
             type="number"
             value={diff}
             min="1"
             onChange={onChange}
           />
-        </span>
-        <span>
+        </Grid>
+        <Grid item xs={6} sm={6}>
           <button className={classes.buttons} onClick={onIncrease}>
             +
           </button>
-        </span>
-        <button className={classes.buttons} onClick={onDecrease}>
-          -
-        </button>
+          <br />
+          <button className={classes.buttons} onClick={onDecrease}>
+            -
+          </button>
+        </Grid>
       </Grid>
     </div>
   );
@@ -54,9 +55,14 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center"
   },
   diffInput: {
-    alignItems: "center"
+    alignItems: "center",
+    marginTop: "3%",
+    width: "80%",
+    height: "50%"
   },
-  buttons: {}
+  buttons: {
+    width: "60%"
+  }
 }));
 
 export default Counter;
