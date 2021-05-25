@@ -1,12 +1,8 @@
 import React from "react";
-import { makeStyles } from '@material-ui/styles';
-import {
-  Paper,
-  Grid,
-} from '@material-ui/core';
+import { makeStyles } from "@material-ui/styles";
+import { Paper, Grid, Input } from "@material-ui/core";
 
 function Counter({ number, diff, onIncrease, onDecrease, onSetDiff }) {
-
   const onChange = (event) => {
     onSetDiff(parseInt(event.target.value, 10));
   };
@@ -16,43 +12,57 @@ function Counter({ number, diff, onIncrease, onDecrease, onSetDiff }) {
   return (
     <div>
       <Paper elevation={3} className={classes.numberPaper}>
-        <h1 className={classes.numberH1}>{number}</h1>
+        <Grid item xs={12} container justify="center">
+          <h1 className={classes.numberH1}>{number}</h1>
+        </Grid>
       </Paper>
-      <Grid>
-        <span>
-          <input className={classes.diffInput} type="number" value={diff} min="1" onChange={onChange} />
-        </span>
-        <span>
-          <button className={classes.buttons} onClick={onIncrease}>+</button>
-        </span>
-        <button className={classes.buttons} onClick={onDecrease}>-</button>
-
-
+      <Grid container>
+        <Grid item xs={6} sm={6}>
+          <Input
+            className={classes.diffInput}
+            type="number"
+            value={diff}
+            min="1"
+            onChange={onChange}
+          />
+        </Grid>
+        <Grid item xs={6} sm={6}>
+          <button className={classes.buttons} onClick={onIncrease}>
+            +
+          </button>
+          <br />
+          <button className={classes.buttons} onClick={onDecrease}>
+            -
+          </button>
+        </Grid>
       </Grid>
     </div>
   );
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   numberPaper: {
-    width: "40%",
-    height: "80%",
+    width: "50%",
+    height: "20vh",
+    margin: "0 auto",
     minHeight: "80px",
     marginTop: "20px",
     marginBottom: "20px",
-    marginLeft: "20px",
-    margin: "0 auto"
+    marginLeft: "auto",
+    marginRight: "auto"
   },
   numberH1: {
-    textAlign: "center",
-
+    textAlign: "center"
   },
   diffInput: {
-    alignItems: "center"
+    alignItems: "center",
+    marginTop: "3%",
+    width: "80%",
+    height: "50%"
   },
   buttons: {
-
-  },
+    width: "60%"
+  }
 }));
 
 export default Counter;
