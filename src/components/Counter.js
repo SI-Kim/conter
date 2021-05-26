@@ -10,7 +10,7 @@ function Counter({ number, diff, onIncrease, onDecrease, onSetDiff }) {
   const classes = useStyles();
 
   return (
-    <div>
+    <Paper className={classes.outterPaper}>
       <Paper elevation={3} className={classes.numberPaper}>
         <Grid item xs={12} container justify="center">
           <h1 className={classes.numberH1}>{number}</h1>
@@ -36,17 +36,17 @@ function Counter({ number, diff, onIncrease, onDecrease, onSetDiff }) {
           </button>
         </Grid>
       </Grid>
-    </div>
+    </Paper>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
   numberPaper: {
     width: "50%",
-    height: "20vh",
+    height: "50%",
     margin: "0 auto",
     minHeight: "80px",
-    marginTop: "20px",
+    marginTop: "10%",
     marginBottom: "20px",
     marginLeft: "auto",
     marginRight: "auto"
@@ -62,6 +62,12 @@ const useStyles = makeStyles((theme) => ({
   },
   buttons: {
     width: "60%"
+  },
+  outterPaper: {
+    margin: "0 auto",
+    width: "90%",
+    backgroundColor: "#FFFFF0",
+    height: "40%"
   }
 }));
 
