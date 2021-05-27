@@ -5,7 +5,10 @@ import { makeStyles } from "@material-ui/styles";
 const TodoItem = React.memo(function TodoItem({ todo, onToggle }) {
   return (
     <li
-      style={{ textDecoration: todo.done ? "line-through" : "none" }}
+      style={{
+        textDecoration: todo.done ? "line-through" : "none",
+        fontFamily: "rounded typeface"
+      }}
       onClick={() => onToggle(todo.id)}
     >
       {todo.text}
