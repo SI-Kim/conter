@@ -43,7 +43,6 @@ function Todos({ todos, onCreate, onToggle }) {
           <TextField
             className={classes.textForm}
             label="To do"
-            type="search"
             variant="filled"
             value={text}
             placehold일r=" 할 일을 입력하세요.."

@@ -21,6 +21,7 @@ function Counter({ number, diff, onIncrease, onDecrease, onSetDiff }) {
           <Input
             className={classes.diffInput}
             type="number"
+            variant="filled"
             value={diff}
             min="1"
             onChange={onChange}
@@ -80,7 +81,8 @@ const useStyles = makeStyles((theme) => ({
     height: "40%",
     marginTop: "5%",
     marginBottom: "5%",
-    paddingTop: "5%"
+    paddingTop: "5%",
+    minHeight: "232px",
   }
 }));
 
