@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Paper, Input, Button } from "@material-ui/core";
+import { Paper, TextField, Button } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
 
 const TodoItem = React.memo(function TodoItem({ todo, onToggle }) {
   return (
@@ -23,6 +24,7 @@ const TodoList = React.memo(function TodoList({ todos, onToggle }) {
 });
 
 function Todos({ todos, onCreate, onToggle }) {
+  const classes = useStyles();
   const [text, setText] = useState("");
   const onChange = (e) => setText(e.target.value);
   const onSubmit = (e) => {
@@ -32,15 +34,18 @@ function Todos({ todos, onCreate, onToggle }) {
   };
 
   return (
-    <Paper>
+    <Paper className={classes.coverPaper}>
       <form onSubmit={onSubmit}>
-        <Input
+        <TextField
+          className={classes.textForm}
+          label="To do"
+          type="search"
           variant="outlined"
           value={text}
-          placeholder="알 일을 입력하세요.."
+          placehold일r=" 할 일을 입력하세요.."
           onChange={onChange}
         />
-        <Button variant="contained" type="submit">
+        <Button className={classes.insertBtn} variant="contained" type="submit">
           등록
         </Button>
       </form>
@@ -48,5 +53,25 @@ function Todos({ todos, onCreate, onToggle }) {
     </Paper>
   );
 }
+
+const useStyles = makeStyles((theme) => ({
+  coverPaper: {
+    margin: "0 auto",
+    marginLeft: "5%",
+    marginRight: "5%",
+    backgroundColor: "#F0FFFF",
+    marginTop: "5%",
+    padding: "3%"
+  },
+  textForm: {
+    width: "60%",
+    marginRight: "5%",
+    height: "30%"
+  },
+  insertBtn: {
+    width: "10%",
+    marginTop: "2%"
+  }
+}));
 
 export default Todos;
