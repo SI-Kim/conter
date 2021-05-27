@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Paper, Input, Button } from "@material-ui/core";
 
 const TodoItem = React.memo(function TodoItem({ todo, onToggle }) {
   return (
@@ -31,17 +32,20 @@ function Todos({ todos, onCreate, onToggle }) {
   };
 
   return (
-    <div>
+    <Paper>
       <form onSubmit={onSubmit}>
-        <input
+        <Input
+          variant="outlined"
           value={text}
           placeholder="알 일을 입력하세요.."
           onChange={onChange}
         />
-        <button type="submit">등록</button>
+        <Button variant="contained" type="submit">
+          등록
+        </Button>
       </form>
       <TodoList todos={todos} onToggle={onToggle} />
-    </div>
+    </Paper>
   );
 }
 
