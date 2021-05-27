@@ -37,23 +37,31 @@ function Todos({ todos, onCreate, onToggle }) {
   };
 
   return (
-    <Paper className={classes.coverPaper}>
-      <form onSubmit={onSubmit}>
-        <TextField
-          className={classes.textForm}
-          label="To do"
-          type="search"
-          variant="outlined"
-          value={text}
-          placehold일r=" 할 일을 입력하세요.."
-          onChange={onChange}
-        />
-        <Button className={classes.insertBtn} variant="contained" type="submit">
-          등록
-        </Button>
-      </form>
-      <TodoList todos={todos} onToggle={onToggle} />
-    </Paper>
+    <div>
+      <Paper className={classes.coverPaper}>
+        <form onSubmit={onSubmit}>
+          <TextField
+            className={classes.textForm}
+            label="To do"
+            type="search"
+            variant="filled"
+            value={text}
+            placehold일r=" 할 일을 입력하세요.."
+            onChange={onChange}
+          />
+          <Button className={classes.insertBtn} variant="contained" type="submit">
+            등록
+          </Button>
+        </form>
+      </Paper>
+      {(todos.length != 0) ?
+        <Paper className={classes.todoItemPaper}>
+          <TodoList todos={todos} onToggle={onToggle} />
+        </Paper>
+        : null
+      }
+      
+    </div>
   );
 }
 
@@ -74,6 +82,15 @@ const useStyles = makeStyles((theme) => ({
   insertBtn: {
     width: "10%",
     marginTop: "2%"
+  },
+  todoItemPaper: {
+    margin: "0 auto",
+    marginLeft: "5%",
+    marginRight: "5%",
+    backgroundColor: "#F0FFFF",
+    marginTop: "3%",
+    padding: "1%",
+    textAlign: "left"
   }
 }));
 

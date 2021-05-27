@@ -20,7 +20,8 @@ function App() {
 const useStyle = makeStyles((theme) => ({
   card: {
     height: "100%",
-    textAlign: "center"
+    textAlign: "center",
+    backgroundColor: "#DCDCDC"
   },
   cover: {
     height: "100%",
