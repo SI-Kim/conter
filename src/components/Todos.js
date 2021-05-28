@@ -48,18 +48,20 @@ function Todos({ todos, onCreate, onToggle }) {
             placehold일r=" 할 일을 입력하세요.."
             onChange={onChange}
           />
-          <Button className={classes.insertBtn} variant="contained" type="submit">
+          <Button
+            className={classes.insertBtn}
+            variant="contained"
+            type="submit"
+          >
             등록
           </Button>
         </form>
       </Paper>
-      {(todos.length != 0) ?
+      {todos.length !== 0 ? (
         <Paper className={classes.todoItemPaper}>
           <TodoList todos={todos} onToggle={onToggle} />
         </Paper>
-        : null
-      }
-      
+      ) : null}
     </div>
   );
 }
