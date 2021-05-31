@@ -1,17 +1,29 @@
 import React from "react";
 import CounterContainer from "./containers/CounterContainer";
 import TodosContainer from "./containers/TodosContainer";
-import { Card } from "@material-ui/core";
+import { Card, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
+import { Route, Link } from "react-router-dom";
 
 function App() {
   const classes = useStyle();
   return (
     <div className={classes.cover}>
+      <Link to="/counter">
+        <Button className={classes.routeBtns} variant="contained">
+          Counter
+        </Button>
+      </Link>
+      <br />
+      <Link to="/todo">
+        <Button className={classes.routeBtns} variant="contained">
+          Todo
+        </Button>
+      </Link>
+      <hr />
       <Card className={classes.card}>
-        <CounterContainer />
-        <hr />
-        <TodosContainer />
+        <Route path="/counter" exact={true} component={CounterContainer} />
+        <Route path="/todo" component={TodosContainer} />
       </Card>
     </div>
   );
@@ -26,6 +38,12 @@ const useStyle = makeStyles((theme) => ({
   cover: {
     height: "100%",
     overflow: "hidden"
+  },
+  routeBtns: {
+    marginLeft: "3%",
+
+    marginTop: "3%",
+    marginBottom: "1%"
   }
 }));
 
